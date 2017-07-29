@@ -7,9 +7,7 @@ public class BrickExistenceManager : MonoBehaviour {
 
     public Vector3 cutoffLevel;
     public GameObject prefabBrick;
-    public GameObject platform;
-
-    public Vector3 startBrickLocation;
+    public GameObject platform;    
 
     private Vector3 platformCurrentPosition;
 
@@ -23,7 +21,7 @@ public class BrickExistenceManager : MonoBehaviour {
         // get initial coordinates of platform and create new
         platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
             platform.transform.position.z);
-        GameObject currentBrick = (GameObject)Instantiate(prefabBrick);
+        currentBrick = (GameObject)Instantiate(prefabBrick);
     }
 	
 	// Update is called once per frame
@@ -34,19 +32,19 @@ public class BrickExistenceManager : MonoBehaviour {
             if (currentBrick.transform.position.y < cutoffLevel.y)
             {
                 // destroy the old brick
-                //Destroy(currentBrick);
+                Destroy(currentBrick);
 
                 platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
                     platform.transform.position.z);
                 // create a new one on the current location of platforms surface
-               // currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition, transform.rotation);
+                // currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition, transform.rotation);
+                currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition, transform.rotation);
             }
         }
-        catch (Exception e)
+        catch (Exception)
         {
             //print("The brick being referenced was destroyed");
         }
-     	 
 	}
 
     private void FixedUpdate()

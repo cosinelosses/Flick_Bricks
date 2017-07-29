@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickDestroyDetector : MonoBehaviour {
+public class BrickDestroyDetector : MonoBehaviour { 
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +13,9 @@ public class BrickDestroyDetector : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnDestroy()
+    {
+        
+    }
 }
