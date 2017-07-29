@@ -21,6 +21,7 @@ public class BrickExistenceManager : MonoBehaviour {
         // get initial coordinates of platform and create new
         platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
             platform.transform.position.z);
+
         currentBrick = (GameObject)Instantiate(prefabBrick);
     }
 	
@@ -32,13 +33,15 @@ public class BrickExistenceManager : MonoBehaviour {
             if (currentBrick.transform.position.y < cutoffLevel.y)
             {
                 // destroy the old brick
-                Destroy(currentBrick);
+                Destroy(currentBrick);                
 
                 platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
                     platform.transform.position.z);
                 // create a new one on the current location of platforms surface
                 // currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition, transform.rotation);
-                currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition, transform.rotation);
+                currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
+                    transform.rotation);
+                //currentBrick = (GameObject)Instantiate(prefabBrick);
             }
         }
         catch (Exception)
@@ -52,17 +55,4 @@ public class BrickExistenceManager : MonoBehaviour {
         
         //print(platformCurrentPosition);
     }
-
-    /*
-   private Vector3 getCooridinatesOfPlatform()
-    {
-        
-        Vector3 coordinatesCenter;
-
-        coordinatesCenter.x = 
-
-        return coordinatesCenter; 
-    }
-
-    */
 }

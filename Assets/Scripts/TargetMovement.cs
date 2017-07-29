@@ -23,19 +23,19 @@ public class TargetMovement : MonoBehaviour {
 	void Update () {
         
         // forward motion
-        this.transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime, Space.World);
+        //this.transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime, Space.World);
 
         // rotate motion 
-        this.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime, Space.Self);
+        //this.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime, Space.Self);
         
         // side-to-side speed switches direction on every other second
         if (Math.Round(time, 0) % 2 == 0)
         {
-            this.transform.Translate(Vector3.right * forwardSpeed * Time.deltaTime, Space.World);
+            this.transform.Translate(Vector3.right * sideSideSpeed * Time.deltaTime, Space.World);
         }
         else
         {
-            this.transform.Translate(Vector3.left * forwardSpeed * Time.deltaTime, Space.World);
+            this.transform.Translate(Vector3.left * sideSideSpeed * Time.deltaTime, Space.World);
         }
 
     }

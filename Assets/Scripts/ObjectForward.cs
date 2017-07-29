@@ -17,6 +17,6 @@ public class ObjectForward : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        this.transform.Translate(Vector3.forward * speedMultiplier * Time.deltaTime, Space.Self); 
+        this.transform.Translate(Vector3.forward * speedMultiplier * Time.deltaTime, Space.World); 
 	}
 }

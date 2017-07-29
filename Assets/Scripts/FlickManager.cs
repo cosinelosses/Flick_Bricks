@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FlickManager : MonoBehaviour {
 
-    public float thrust;
+    public float thrust_up;
+    public float thrust_forward; 
     public Rigidbody rb; 
 
 	// Use this for initialization
@@ -21,8 +22,8 @@ public class FlickManager : MonoBehaviour {
     {
         if(Input.GetKeyDown(KeyCode.Y))
         {
-            rb.AddForce(transform.up * thrust);
-            rb.AddForce(transform.forward * thrust);
+            rb.AddForce(transform.up * thrust_up);
+            rb.AddForce(transform.forward * thrust_forward);
         }
     }
 
