@@ -10,6 +10,9 @@ public class TargetPopupManager : MonoBehaviour {
 
     // platform for reference
     public GameObject ref_platform;
+
+    // forward speed of the ring can also be rand set (low variance) 
+    public float target_forward_speed; 
     
     // set and make private -set by randoms     
     private float distance_z;
@@ -39,7 +42,7 @@ public class TargetPopupManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // move the ring at same (will be less) rate as platform
-        targ_ring.transform.Translate(Vector3.forward * 10 * Time.deltaTime, Space.World);
+        targ_ring.transform.Translate(Vector3.forward * target_forward_speed * Time.deltaTime, Space.World);
     }
 
     void FixedUpdate()
@@ -83,7 +86,7 @@ public class TargetPopupManager : MonoBehaviour {
 
     private void setRandInts()
     {
-        distance_z = genRandNum(20, 150);
+        distance_z = genRandNum(35, 150);
         distance_y = genRandNum(0, 20);
         distance_x = genRandNum(-15, 15);
     }
