@@ -92,7 +92,7 @@ public class TargetPopupManager : MonoBehaviour {
     {
         distance_z = genRandNum(35, 150);
         distance_y = genRandNum(0, 20);
-        distance_x = genRandNum(-15, 15);
+        distance_x = genRandNum(-50, 50);
 
         res_scale_value = genRandNum(1, 12); // make this biased towards 2 (original scale) 
     }
