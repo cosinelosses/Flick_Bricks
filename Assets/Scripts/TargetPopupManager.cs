@@ -14,11 +14,19 @@ public class TargetPopupManager : MonoBehaviour {
     // forward speed of the ring can also be rand set (low variance) 
     public float target_forward_speed; 
     
-    // set and make private -set by randoms     
+    // positions set by randoms     
     private float distance_z;
     private float distance_x;
     private float distance_y;
 
+    // rotation set rand (enum on 90s?) 
+    // var
+
+    // size set by random
+    private Vector3 res_scale;
+    private float res_scale_value; 
+
+    // visible props
     public float visible_duration;
     private double time;
     private double time2; 
@@ -29,14 +37,14 @@ public class TargetPopupManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // initialize time
-        time = 0;
+        time = 0;        
 
-        // gen 3 rands for x, y, z
+        // gen 4 rands for x, y, z, and scale
         setRandInts(); 
 
         // spawn initial ring
         targ_ring = (GameObject)Instantiate(target_prefab, new Vector3() + new Vector3(0,
-                distance_y, distance_z), transform.rotation);
+                distance_y, distance_z), transform.rotation);        
     }
 	
 	// Update is called once per frame
@@ -54,25 +62,21 @@ public class TargetPopupManager : MonoBehaviour {
             // destroy existing 
             Destroy(targ_ring);
 
-            distance_z = genRandNum(20, 150);
-            distance_y = genRandNum(0, 20);
-            distance_x = genRandNum(-15, 15);
-            
+            setRandInts();
+
             print("distance_z is now: " + distance_z + " distance_x is now: " + distance_x);
 
             // create new
             targ_ring = (GameObject)Instantiate(target_prefab, new Vector3(ref_platform.transform.position.x,
                 ref_platform.transform.position.y, ref_platform.transform.position.z) +
-                new Vector3(distance_x, distance_y, distance_z), transform.rotation); // replace here (up/ahead) 
+                new Vector3(distance_x, distance_y, distance_z), transform.rotation); 
+
+            // set scale 
+            targ_ring.transform.localScale = new Vector3(res_scale_value, res_scale_value, res_scale_value);
+            print("current res_scale_value is: " + res_scale_value); 
 
             time = 0; 
-        }
-
-        /*
-        if(Math.Round(time2, 0) % 2 == 0)
-        {
-            genRandNum(20, 40); 
-        }*/
+        }        
     }   
 
     private int genRandNum(int min, int max)
@@ -89,5 +93,7 @@ public class TargetPopupManager : MonoBehaviour {
         distance_z = genRandNum(35, 150);
         distance_y = genRandNum(0, 20);
         distance_x = genRandNum(-15, 15);
+
+        res_scale_value = genRandNum(1, 12); // make this biased towards 2 (original scale) 
     }
 }
