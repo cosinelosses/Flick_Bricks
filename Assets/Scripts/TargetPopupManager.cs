@@ -64,16 +64,16 @@ public class TargetPopupManager : MonoBehaviour {
 
             setRandInts();
 
-            print("distance_z is now: " + distance_z + " distance_x is now: " + distance_x);
+            // print("distance_z is now: " + distance_z + " distance_x is now: " + distance_x);
 
-            // create new
+            // create new (adds to the current platform position)
             targ_ring = (GameObject)Instantiate(target_prefab, new Vector3(ref_platform.transform.position.x,
-                ref_platform.transform.position.y, ref_platform.transform.position.z) +
-                new Vector3(distance_x, distance_y, distance_z), transform.rotation); 
+                ref_platform.transform.position.y, ref_platform.transform.position.z) + new Vector3(distance_x, distance_y, distance_z), transform.rotation); 
 
             // set scale 
             targ_ring.transform.localScale = new Vector3(res_scale_value, res_scale_value, res_scale_value);
-            print("current res_scale_value is: " + res_scale_value); 
+
+            // print("current res_scale_value is: " + res_scale_value); 
 
             time = 0; 
         }        
@@ -84,15 +84,15 @@ public class TargetPopupManager : MonoBehaviour {
         System.Random randNumGen = new System.Random();
         int rand = randNumGen.Next(min, max);
 
-        print("Random number is: " + rand);
+        // print("Random number is: " + rand);
         return rand; 
     }  
 
     private void setRandInts()
     {
-        distance_z = genRandNum(35, 150);
-        distance_y = genRandNum(0, 20);
-        distance_x = genRandNum(-50, 50);
+        distance_z = genRandNum(35, 70);
+        distance_y = genRandNum(5, 20);
+        distance_x = genRandNum(-20, 20);
 
         res_scale_value = genRandNum(1, 12); // make this biased towards 2 (original scale) 
     }

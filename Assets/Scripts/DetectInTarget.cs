@@ -2,34 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectInTarget : MonoBehaviour {
+public class DetectInTarget : MonoBehaviour {       
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-	}
+	}    
 
     // sends trigger events 
-    private void OnTriggerEnter(Collider col)
-    {
+    public void OnTriggerEnter(Collider col)
+    {       
         // successfully throught the ring 
         if(col.tag == "target_box")
         {
-            print("That's in! (from the onTriggerEnter");
-        }
-    }
+            print("That's in! Destroying the brick");
 
-    // sends collision events
-    private void OnCollisionEnter(Collision col)
-    {
-        if(col.gameObject.tag == "target_box")
-        {
-            print("That's in!");
-        }
+            // destroy the current brick
+            GameObject brickToDestroy = GameObject.FindGameObjectWithTag("Brick");
+            Destroy(brickToDestroy);              
+        }        
     }
 }

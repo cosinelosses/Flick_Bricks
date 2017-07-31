@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54302390378cb564b9a00a8e8a064ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutoffLevel: {x: 0, y: 0, z: 0}
+  cutoffLevel: {x: 0, y: -40, z: 0}
   prefabBrick: {fileID: 1408593478458184, guid: 99e86cb591695ec408485522d77e46cf,
     type: 2}
   platform: {fileID: 1165972234}
