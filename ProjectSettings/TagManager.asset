@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - target_box
+  - Brick
+  - platform
   layers:
   - Default
   - TransparentFX

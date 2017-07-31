@@ -6,7 +6,9 @@ public class FlickManager : MonoBehaviour {
 
     public float thrust_up;
     public float thrust_forward; 
-    public Rigidbody rb; 
+    public Rigidbody rb;
+
+    public float range; 
 
 	// Use this for initialization
 	void Start () {

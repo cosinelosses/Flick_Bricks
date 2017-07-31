@@ -38,14 +38,13 @@ public class BrickExistenceManager : MonoBehaviour {
                 // destroy the old brick
                 Destroy(currentBrick);                
 
+                // get current platform position
                 platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
                     platform.transform.position.z);
-                // create a new one on the current location of platforms surface
 
-                // currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition, transform.rotation);
+                // create a new one on the current location of platforms surface                
                 currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
-                    transform.rotation);
-                //currentBrick = (GameObject)Instantiate(prefabBrick);
+                    transform.rotation);                
             }           
         }
         catch (Exception)

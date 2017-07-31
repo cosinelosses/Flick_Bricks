@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectInTarget : MonoBehaviour {       
+public class DetectInTarget : MonoBehaviour {    
 
     // Use this for initialization
     void Start () {
@@ -24,7 +24,10 @@ public class DetectInTarget : MonoBehaviour {
 
             // destroy the current brick
             GameObject brickToDestroy = GameObject.FindGameObjectWithTag("Brick");
-            Destroy(brickToDestroy);              
+            Destroy(brickToDestroy);
+
+            // add to score 
+            
         }        
     }
 }
