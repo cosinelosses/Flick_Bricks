@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - target_box
-<<<<<<< HEAD
-  - Brick
-  - platform
-=======
-  - Undefined
-  - Brick
->>>>>>> CalculatedFlick
+  tags: []
   layers:
   - Default
   - TransparentFX

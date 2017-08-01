@@ -81,10 +81,10 @@ public class TargetPopupManager : MonoBehaviour {
 
             // set scale 
             targ_ring.transform.localScale = new Vector3(res_scale_value, res_scale_value, res_scale_value);
-<<<<<<< HEAD
 
-=======
->>>>>>> CalculatedFlick
+
+
+
             // print("current res_scale_value is: " + res_scale_value); 
 
             time = 0; 
@@ -103,13 +103,13 @@ public class TargetPopupManager : MonoBehaviour {
     private void setRandInts()
     {
         distance_z = genRandNum(35, 70);
-<<<<<<< HEAD
+
         distance_y = genRandNum(5, 20);
         distance_x = genRandNum(-20, 20);
-=======
+
         distance_y = genRandNum(0, 20);
         distance_x = genRandNum(-30, 30);
->>>>>>> CalculatedFlick
+
 
         res_scale_value = genRandNum(1, 12); // make this biased towards 2 (original scale) 
     }

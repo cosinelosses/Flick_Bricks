@@ -13,12 +13,13 @@ public class BrickExistenceManager : MonoBehaviour {
 
     private GameObject currentBrick;
 
-    public string brickTag; 
+    private string brickTag; 
 
 	// Use this for initialization
 	void Start () {
         // spawn the first brick at start 
-        // Instantiate(prefabBrick, )
+
+        brickTag = "Brick"; 
 
         // get initial coordinates of platform and create new
         platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,

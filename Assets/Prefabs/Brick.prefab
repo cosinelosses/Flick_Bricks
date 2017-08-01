@@ -162,3 +162,5 @@ MonoBehaviour:
   thrust_up: 400
   thrust_forward: 1500
   rb: {fileID: 54781817209398810}
+  range: 0
+  minSwipeLength: 200

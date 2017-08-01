@@ -18,7 +18,7 @@ public class FlickManager : MonoBehaviour {
     public float minSwipeLength = 200f;
     Vector2 firstPressPos;
     Vector2 secondPressPos; 
-    Vector
+    
 
 	// Use this for initialization
 	void Start () {

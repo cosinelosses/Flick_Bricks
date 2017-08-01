@@ -454,6 +454,12 @@ MonoBehaviour:
     type: 2}
   ref_platform: {fileID: 1165972234}
   target_forward_speed: 6
+  xrange_start: 0
+  xrange_end: 0
+  yrange_start: 0
+  yrange_end: 0
+  zrange_start: 0
+  zrange_end: 0
   visible_duration: 3
 --- !u!23 &1165972236
 MeshRenderer:
@@ -546,7 +552,6 @@ MonoBehaviour:
   prefabBrick: {fileID: 1408593478458184, guid: 99e86cb591695ec408485522d77e46cf,
     type: 2}
   platform: {fileID: 1165972234}
-  DetectInTarget: {fileID: 0}
 --- !u!114 &1165972242
 MonoBehaviour:
   m_ObjectHideFlags: 0
