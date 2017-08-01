@@ -20,6 +20,7 @@ public class DetectInTarget : MonoBehaviour {
         // successfully throught the ring 
         if(col.tag == "target_box")
         {
+<<<<<<< HEAD
             print("That's in! Destroying the brick");
 
             // destroy the current brick
@@ -30,4 +31,10 @@ public class DetectInTarget : MonoBehaviour {
             
         }        
     }
+=======
+            print("That's in! ");
+            Destroy(GameObject.FindWithTag("Brick"));
+        }
+    }    
+>>>>>>> CalculatedFlick
 }

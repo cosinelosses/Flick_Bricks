@@ -12,7 +12,13 @@ public class BrickExistenceManager : MonoBehaviour {
     // obj for in targ dectection
     public DetectInTarget DetectInTarget; 
 
+<<<<<<< HEAD
     private Vector3 platformCurrentPosition;
+=======
+    private GameObject currentBrick;
+
+    public string brickTag; 
+>>>>>>> CalculatedFlick
 
     private GameObject currentBrick;
     
@@ -25,11 +31,17 @@ public class BrickExistenceManager : MonoBehaviour {
         platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
             platform.transform.position.z);
 
+<<<<<<< HEAD
         currentBrick = (GameObject)Instantiate(prefabBrick);        
+=======
+        currentBrick = (GameObject)Instantiate(prefabBrick);
+       
+>>>>>>> CalculatedFlick
     }
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
      
        try
         {
@@ -66,5 +78,37 @@ public class BrickExistenceManager : MonoBehaviour {
     private void FixedUpdate()
     {                   
         //print(platformCurrentPosition);
+=======
+
+       
+	}
+
+    private void FixedUpdate()
+    {
+        // get the platform current position 
+        platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
+            platform.transform.position.z);
+
+        currentBrick = GameObject.FindWithTag(brickTag);
+
+        if (currentBrick == null)
+        {
+            currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
+                    transform.rotation);
+        }
+        
+          if (currentBrick.transform.position.y < cutoffLevel.y)
+          {
+              // destroy the old brick
+              Destroy(currentBrick);
+            
+              // create a new one on the current location of platforms surface              
+              currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
+                  transform.rotation);
+          }                
+        
+        // brick is destroyed action 
+        
+>>>>>>> CalculatedFlick
     }
 }
