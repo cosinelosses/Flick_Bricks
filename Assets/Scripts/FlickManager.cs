@@ -30,7 +30,6 @@ public class FlickManager : MonoBehaviour {
     void ApplyForce(Rigidbody body)
     {
         Vector3 direction = body.transform.position - transform.position;
-        body.AddForceAtPosition(direction.normalized, transform.position);       
-        
+        body.AddForceAtPosition(direction.normalized, transform.position);               
     }
 }

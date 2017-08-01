@@ -20,16 +20,8 @@ public class DetectInTarget : MonoBehaviour {
         // successfully throught the ring 
         if(col.tag == "target_box")
         {
-            print("That's in! (from the onTriggerEnter");
+            print("That's in! ");
+            Destroy(GameObject.FindWithTag("Brick"));
         }
-    }
-
-    // sends collision events
-    private void OnCollisionEnter(Collision col)
-    {
-        if(col.gameObject.tag == "target_box")
-        {
-            print("That's in!");
-        }
-    }
+    }    
 }

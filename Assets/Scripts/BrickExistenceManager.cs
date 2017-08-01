@@ -11,7 +11,9 @@ public class BrickExistenceManager : MonoBehaviour {
 
     private Vector3 platformCurrentPosition;
 
-    private GameObject currentBrick; 
+    private GameObject currentBrick;
+
+    public string brickTag; 
 
 	// Use this for initialization
 	void Start () {
@@ -23,36 +25,40 @@ public class BrickExistenceManager : MonoBehaviour {
             platform.transform.position.z);
 
         currentBrick = (GameObject)Instantiate(prefabBrick);
+       
     }
 	
 	// Update is called once per frame
 	void Update () {
-     
-       try
-        {
-            if (currentBrick.transform.position.y < cutoffLevel.y)
-            {
-                // destroy the old brick
-                Destroy(currentBrick);                
 
-                platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
-                    platform.transform.position.z);
-                // create a new one on the current location of platforms surface
-                // currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition, transform.rotation);
-                currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
-                    transform.rotation);
-                //currentBrick = (GameObject)Instantiate(prefabBrick);
-            }
-        }
-        catch (Exception)
-        {
-            //print("The brick being referenced was destroyed");
-        }
+       
 	}
 
     private void FixedUpdate()
     {
+        // get the platform current position 
+        platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
+            platform.transform.position.z);
+
+        currentBrick = GameObject.FindWithTag(brickTag);
+
+        if (currentBrick == null)
+        {
+            currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
+                    transform.rotation);
+        }
         
-        //print(platformCurrentPosition);
+          if (currentBrick.transform.position.y < cutoffLevel.y)
+          {
+              // destroy the old brick
+              Destroy(currentBrick);
+            
+              // create a new one on the current location of platforms surface              
+              currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
+                  transform.rotation);
+          }                
+        
+        // brick is destroyed action 
+        
     }
 }
