@@ -19,6 +19,15 @@ public class TargetPopupManager : MonoBehaviour {
     private float distance_x;
     private float distance_y;
 
+    // range values for axes
+    public float xrange_start;
+    public float xrange_end;
+    public float yrange_start;
+    public float yrange_end;
+    public float zrange_start;
+    public float zrange_end; 
+
+
     // rotation set rand (enum on 90s?) 
     // var
 

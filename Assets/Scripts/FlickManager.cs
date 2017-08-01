@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class FlickManager : MonoBehaviour {
 
-    public float thrust_up;
+    // make calculated private
+    public float thrust_up; 
     public float thrust_forward; 
+
     public Rigidbody rb;
 
-    public float range; 
+    public float range;
+
+
+    // premade
+
+    public float minSwipeLength = 200f;
+    Vector2 firstPressPos;
+    Vector2 secondPressPos; 
+    Vector
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +27,10 @@ public class FlickManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        float h = Input.GetAxis("Horizontal");
+        float xPos = h * range;
+
+        print(xPos); 
 	}
 
     private void FixedUpdate()
