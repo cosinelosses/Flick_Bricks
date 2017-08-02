@@ -58,6 +58,14 @@ public class FlickManager : MonoBehaviour {
                 // apply thrust 
                 rb.AddForce(thrust);
 
+                // apply rotation 
+                float x_amt = 10;
+                float y_amt = 0;
+                float z_amt = 0;
+
+                rb.AddForceAtPosition(new Vector3(0, 100, 0), new Vector3(0.2f, 0.2f, 0.2f));
+                print("this.tag is: " + this.tag);
+
                 // after calculating thrust 
                 points.Clear();
             }
@@ -116,5 +124,12 @@ public class FlickManager : MonoBehaviour {
         print("Thurst vector: " + thrustVector); 
 
         return thrustVector;
+    }
+
+    private Vector3 createRotation(float x_amt, float y_amt, float z_amt)
+    {
+        Vector3 rotation = new Vector3();
+
+        return rotation; 
     }
 }
