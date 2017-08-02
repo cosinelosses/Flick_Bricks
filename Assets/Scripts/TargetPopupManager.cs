@@ -20,20 +20,24 @@ public class TargetPopupManager : MonoBehaviour {
     private float distance_y;
 
     // range values for axes
-    public float xrange_start;
-    public float xrange_end;
-    public float yrange_start;
-    public float yrange_end;
-    public float zrange_start;
-    public float zrange_end; 
+    public int xrange_min;
+    public int xrange_max;
+    public int yrange_min;
+    public int yrange_max;
+    public int zrange_min;
+    public int zrange_max;
+
+    public float res_scale_min;
+    public float res_scale_max; 
+
+    // size set by random    
+    private float res_scale_value;
 
 
     // rotation set rand (enum on 90s?) 
     // var
 
-    // size set by random
-    private Vector3 res_scale;
-    private float res_scale_value; 
+
 
     // visible props
     public float visible_duration;
@@ -77,13 +81,11 @@ public class TargetPopupManager : MonoBehaviour {
 
             // create new (adds to the current platform position)
             targ_ring = (GameObject)Instantiate(target_prefab, new Vector3(ref_platform.transform.position.x,
-                ref_platform.transform.position.y, ref_platform.transform.position.z) + new Vector3(distance_x, distance_y, distance_z), transform.rotation); 
+                ref_platform.transform.position.y, ref_platform.transform.position.z) + new Vector3(distance_x, distance_y, distance_z),
+                transform.rotation); 
 
             // set scale 
             targ_ring.transform.localScale = new Vector3(res_scale_value, res_scale_value, res_scale_value);
-
-
-
 
             // print("current res_scale_value is: " + res_scale_value); 
 
@@ -101,15 +103,10 @@ public class TargetPopupManager : MonoBehaviour {
     }  
 
     private void setRandInts()
-    {
-        distance_z = genRandNum(35, 70);
-
-        distance_y = genRandNum(5, 20);
-        distance_x = genRandNum(-20, 20);
-
-        distance_y = genRandNum(0, 20);
-        distance_x = genRandNum(-30, 30);
-
+    {        
+        distance_x = genRandNum(xrange_min, xrange_max);
+        distance_y = genRandNum(yrange_min, yrange_max); 
+        distance_z = genRandNum(zrange_min, zrange_max);        
 
         res_scale_value = genRandNum(1, 12); // make this biased towards 2 (original scale) 
     }

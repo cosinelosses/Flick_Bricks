@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 65046985790237672}
   - component: {fileID: 23005899250173034}
   - component: {fileID: 114072293996818918}
-  - component: {fileID: 114881484787555074}
   - component: {fileID: 54781817209398810}
   - component: {fileID: 65452390197546230}
   - component: {fileID: 114580550898663522}
@@ -160,30 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5525e63cee6d3814fb7e14ef8fdcb4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust_up: 0
-  thrust_forward: 0
   rb: {fileID: 54781817209398810}
   thrustScaleVertical: 3
   thrustScaleForward: 3
   horizontalScale: 2
-  forwardConstant: 200
-  minSwipeLength: 200
---- !u!114 &114881484787555074
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1408593478458184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5525e63cee6d3814fb7e14ef8fdcb4b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrust_up: 400
-  thrust_forward: 1500
-  rb: {fileID: 54781817209398810}
-  thrustScaleVertical: 0
-  thrustScaleForward: 0
-  horizontalScale: 0
-  forwardConstant: 0
+  forwardConstant: 400
   minSwipeLength: 200
