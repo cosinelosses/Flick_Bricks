@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectInTarget : MonoBehaviour {    
+public class DetectInTarget : MonoBehaviour {         
 
     // Use this for initialization
     void Start () {

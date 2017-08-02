@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 65497897781256674}
   - component: {fileID: 114878351242594044}
   m_Layer: 0
-  m_Name: SizeableTarget
+  m_Name: SizableTarget
   m_TagString: target_box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,13 +38,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006879701459914}
-  m_LocalRotation: {x: -0.92534584, y: -0, z: -0, w: -0.37912425}
-  m_LocalPosition: {x: -15.53, y: 9.129194, z: 33.141876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.595167, y: 5.562716, z: 7.5270524}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -224.559, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23294269642465900
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -109,8 +109,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.432202, y: 9.525515, z: 2.3527021}
-  m_Center: {x: 0.5460732, y: -1.7820268, z: -0.00000049022333}
+  m_Size: {x: 6.432202, y: 9.525515, z: 3.0342505}
+  m_Center: {x: 0.5460732, y: -1.7820268, z: 1.9017047}
 --- !u!95 &95470112029790726
 Animator:
   serializedVersion: 3

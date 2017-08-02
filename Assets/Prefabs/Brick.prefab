@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 54781817209398810}
   - component: {fileID: 65452390197546230}
   - component: {fileID: 114580550898663522}
+  - component: {fileID: 114783244827726792}
   m_Layer: 0
   m_Name: Brick
   m_TagString: Brick
@@ -148,6 +149,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d7c9ee158e87d4cb7d284166041832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114783244827726792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408593478458184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5525e63cee6d3814fb7e14ef8fdcb4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust_up: 0
+  thrust_forward: 0
+  rb: {fileID: 54781817209398810}
+  thrustScaleVertical: 3
+  thrustScaleForward: 3
+  horizontalScale: 2
+  forwardConstant: 200
+  minSwipeLength: 200
 --- !u!114 &114881484787555074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,5 +182,8 @@ MonoBehaviour:
   thrust_up: 400
   thrust_forward: 1500
   rb: {fileID: 54781817209398810}
-  range: 0
+  thrustScaleVertical: 0
+  thrustScaleForward: 0
+  horizontalScale: 0
+  forwardConstant: 0
   minSwipeLength: 200

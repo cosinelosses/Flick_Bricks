@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FlickManager : MonoBehaviour {
-
-    // make calculated private
-    public float thrust_up; 
-    public float thrust_forward; 
-
+    
     public Rigidbody rb;
 
-    // premade
+    // multipliers for thurst calculation 
+    public float thrustScaleVertical;
+    public float thrustScaleForward;
+    public float horizontalScale; 
+    public int forwardConstant; // constant because
 
     public float minSwipeLength = 200f;
 
@@ -26,8 +26,7 @@ public class FlickManager : MonoBehaviour {
     bool shouldAppend; 
 
     // Use this for initialization
-    void Start () {
-        rb = GetComponent<Rigidbody>();
+    void Start () {        
         shouldAppend = false;
 	}
 
@@ -35,9 +34,8 @@ public class FlickManager : MonoBehaviour {
 	void Update () {
 
         if (Input.GetKeyDown(KeyCode.Y))
-        {                        
-            rb.AddForce(transform.up * thrust_up);
-            rb.AddForce(transform.forward * thrust_forward);            
+        {
+            print("pressed y");
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -54,10 +52,12 @@ public class FlickManager : MonoBehaviour {
             // calculate thrust  
             if (points.Count > 0)
             {
-                thrust = calculateFlickThrust(points, 3);
+                // calculate thrust
+                thrust = calculateFlickThrust();
 
                 // apply thrust 
                 rb.AddForce(thrust);
+
                 // after calculating thrust 
                 points.Clear();
             }
@@ -70,9 +70,7 @@ public class FlickManager : MonoBehaviour {
         {
             mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             // print(mousePosition);
-
-            // print(points[0].x);
-
+            
             // add current mouse position
             points.Add(mousePosition);
         }
@@ -84,7 +82,7 @@ public class FlickManager : MonoBehaviour {
         body.AddForceAtPosition(direction.normalized, transform.position);               
     }
 
-    private Vector3 calculateFlickThrust(List<Vector2> points, float thrustScaleVertical = 3, float thrustScaleForward = 70, float forwardConstant = 20)
+    private Vector3 calculateFlickThrust()
     {
         Vector3 thrustVector = new Vector3();
 
@@ -103,7 +101,8 @@ public class FlickManager : MonoBehaviour {
 
         // horizontal component
         comp_horizontal = points[points.Count - 1].x - points[0].x; // z is horizonatal component relative to the world, x is horizontal relative to the screen (for mouse input)         
-            comp_horizontal *= 2; 
+            comp_horizontal *= horizontalScale; 
+
         // forward component
         comp_forward = forwardConstant * thrustScaleForward;
 
