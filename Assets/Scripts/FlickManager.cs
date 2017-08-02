@@ -38,14 +38,11 @@ public class FlickManager : MonoBehaviour {
         {                        
             rb.AddForce(transform.up * thrust_up);
             rb.AddForce(transform.forward * thrust_forward);            
-        }                   
-	}
+        }
 
-    private void FixedUpdate()
-    {
         if (Input.GetMouseButtonDown(0))
         {
-            // start input
+            // start input            
             shouldAppend = true;
         }
 
@@ -55,7 +52,7 @@ public class FlickManager : MonoBehaviour {
             shouldAppend = false;
 
             // calculate thrust  
-            if(points.Count > 0)
+            if (points.Count > 0)
             {
                 thrust = calculateFlickThrust(points, 3);
 
@@ -63,9 +60,12 @@ public class FlickManager : MonoBehaviour {
                 rb.AddForce(thrust);
                 // after calculating thrust 
                 points.Clear();
-            }            
+            }
         }
+    }
 
+    private void FixedUpdate()
+    {       
         if (shouldAppend)
         {
             mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -84,31 +84,37 @@ public class FlickManager : MonoBehaviour {
         body.AddForceAtPosition(direction.normalized, transform.position);               
     }
 
-    private Vector3 calculateFlickThrust(List<Vector2> points, float thrustScale)
+    private Vector3 calculateFlickThrust(List<Vector2> points, float thrustScaleVertical = 3, float thrustScaleForward = 70, float forwardConstant = 20)
     {
         Vector3 thrustVector = new Vector3();
 
-        float comp_x; 
-        float comp_y;
-        float comp_z;
+        float comp_forward; 
+        float comp_vert;
+        float comp_horizontal;
 
         for (int i = 0; i < points.Count; i++)
         {
             print("Point in list: " + points[i].x + " " + points[i].y); 
         }
-         
+
         // vertical component
-        comp_y = points[points.Count - 1].y - points[0].y;
-            comp_y *= thrustScale;
+        comp_vert = points[points.Count - 1].y - points[0].y;
+            comp_vert *= thrustScaleVertical;
 
         // horizontal component
-        comp_z = points[points.Count - 1].x - points[0].x; // z is horizonatal component relative to the world, x is horizontal relative to the screen (for mouse input)         
-
+        comp_horizontal = points[points.Count - 1].x - points[0].x; // z is horizonatal component relative to the world, x is horizontal relative to the screen (for mouse input)         
+            comp_horizontal *= 2; 
         // forward component
-        comp_z = 800; 
+        comp_forward = forwardConstant * thrustScaleForward;
 
-        thrustVector = new Vector3(0, comp_y, comp_z);
-        print("Thurst vectors:  " + thrustVector); 
+        if (comp_forward < 0)
+        {
+            // make positive only
+            comp_forward *= -1.0f; 
+        }                
+
+        thrustVector = new Vector3(comp_horizontal, comp_vert, comp_forward);
+        print("Thurst vector: " + thrustVector); 
 
         return thrustVector;
     }
