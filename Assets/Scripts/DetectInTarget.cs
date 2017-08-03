@@ -7,6 +7,8 @@ public class DetectInTarget : MonoBehaviour {
     // use the platform to reference its script
     private GameObject ref_platform;
 
+    private Time time_since_launch; 
+
     private int score_increment; 
 
     // Use this for initialization
@@ -22,19 +24,19 @@ public class DetectInTarget : MonoBehaviour {
     // sends trigger events 
     public void OnTriggerEnter(Collider col)
     {       
-        // successfully throught the ring 
+        // successfully through the ring 
         if(col.tag == "target_box")
-        {
+        {            
             print("That's in! Destroying the brick");
 
+            print("this ob name: " + this.name);
             // destroy the current brick
-            GameObject brickToDestroy = GameObject.FindGameObjectWithTag("Brick");
-            Destroy(brickToDestroy);
+            Destroy(this.gameObject); 
 
             ref_platform = GameObject.FindWithTag("platform");
             ref_platform.GetComponent<BrickExistenceManager>().score += score_increment;
 
-            print("score is: " + ref_platform.GetComponent<BrickExistenceManager>().score); 
+            //print("score is: " + ref_platform.GetComponent<BrickExistenceManager>().score); 
 
             // add to score 
             

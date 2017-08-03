@@ -236,9 +236,10 @@ MonoBehaviour:
   target_prefab: {fileID: 1006879701459914, guid: dc5bcc19d6d5b4942b394b1527665ed2,
     type: 2}
   ref_platform: {fileID: 1165972234}
+  platform_position: {x: 0, y: 0, z: 0}
   target_forward_speed: 3
-  xrange_min: -30
-  xrange_max: 30
+  xrange_min: -10
+  xrange_max: 10
   yrange_min: 5
   yrange_max: 25
   zrange_min: 20
@@ -334,10 +335,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  cutoffLevel: {x: 0, y: -40, z: 0}
+  cutoffLevel: -1
   prefabBrick: {fileID: 1408593478458184, guid: 99e86cb591695ec408485522d77e46cf,
     type: 2}
   platform: {fileID: 1165972234}
+  brickTag: Brick
 --- !u!1 &1686721046
 GameObject:
   m_ObjectHideFlags: 0

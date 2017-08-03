@@ -13,9 +13,12 @@ public class FlickManager : MonoBehaviour {
     public float horizontalScale; 
     public int forwardConstant; // constant because
 
+    // limits 
     public float thrustMax; 
-
     public int minSwipeLength = 200;
+
+    // rotational forces (can add other axes later) 
+    public float x_rotation; 
 
     Vector2 firstPressPos;
     Vector2 secondPressPos;
@@ -59,13 +62,8 @@ public class FlickManager : MonoBehaviour {
                 // apply thrust 
                 rb.AddForce(thrust);
 
-                // apply rotation 
-                float x_amt = 10;
-                float y_amt = 0;
-                float z_amt = 0;
-
-                rb.AddForceAtPosition(new Vector3(0, 100, 0), new Vector3(0.2f, 0.2f, 0.2f));
-                //print("this.tag is: " + this.tag);
+                // apply rotation                 
+                rb.AddForceAtPosition(new Vector3(0, x_rotation, 0), new Vector3(0.2f, 0.2f, 0.2f)); // make the force position publically settable also                                 
 
                 // after calculating thrust 
                 points.Clear();
@@ -77,10 +75,10 @@ public class FlickManager : MonoBehaviour {
     {       
         if (shouldAppend)
         {
-            mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-            // print(mousePosition);
-            
-            // add current mouse position
+            // get current mouse position each fixed update
+            mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);                        
+
+            // add current mouse position to points list
             points.Add(mousePosition);
         }
     }
