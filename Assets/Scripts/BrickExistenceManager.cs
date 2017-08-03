@@ -5,28 +5,31 @@ using UnityEngine;
 
 public class BrickExistenceManager : MonoBehaviour {
 
+    public int score; 
+
     public Vector3 cutoffLevel;
     public GameObject prefabBrick;
     public GameObject platform;    
 
     private Vector3 platformCurrentPosition;
-
+    
     private GameObject currentBrick;
 
-    private string brickTag; 
+    private string brickTag;
+    
+    // Use this for initialization
+    void Start () {        
 
-	// Use this for initialization
-	void Start () {
-        // spawn the first brick at start 
-
+        // set brick tag programmatically 
         brickTag = "Brick"; 
 
         // get initial coordinates of platform and create new
         platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
             platform.transform.position.z);
 
-        currentBrick = (GameObject)Instantiate(prefabBrick);
-       
+        // spawn the first brick at start 
+        currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
+                    transform.rotation);
     }
 	
 	// Update is called once per frame

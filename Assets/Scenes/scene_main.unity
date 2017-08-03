@@ -239,12 +239,12 @@ MonoBehaviour:
   target_forward_speed: 3
   xrange_min: -30
   xrange_max: 30
-  yrange_min: 15
-  yrange_max: 35
-  zrange_min: 50
-  zrange_max: 120
+  yrange_min: 5
+  yrange_max: 25
+  zrange_min: 20
+  zrange_max: 60
   res_scale_min: 0.1
-  res_scale_max: 2
+  res_scale_max: 1.5
   visible_duration: 7
 --- !u!23 &1165972236
 MeshRenderer:
@@ -304,7 +304,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1165972234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.2, z: 0}
+  m_LocalPosition: {x: 0.02, y: -1.2, z: -0.13}
   m_LocalScale: {x: 4, y: 4.221095, z: 3.224825}
   m_Children: []
   m_Father: {fileID: 0}
@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54302390378cb564b9a00a8e8a064ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   cutoffLevel: {x: 0, y: -40, z: 0}
   prefabBrick: {fileID: 1408593478458184, guid: 99e86cb591695ec408485522d77e46cf,
     type: 2}
@@ -421,7 +422,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1686721046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: 2.757, z: -6.05}
+  m_LocalPosition: {x: 0, y: 2.757, z: -3.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
