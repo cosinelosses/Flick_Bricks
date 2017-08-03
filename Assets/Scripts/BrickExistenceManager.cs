@@ -15,6 +15,8 @@ public class BrickExistenceManager : MonoBehaviour {
     
     private GameObject currentBrick;
 
+    private GameObject[] activeBricks;
+
     private string brickTag;
     
     // Use this for initialization
