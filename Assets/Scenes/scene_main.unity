@@ -243,9 +243,9 @@ MonoBehaviour:
   yrange_max: 35
   zrange_min: 50
   zrange_max: 120
-  res_scale_min: 1
-  res_scale_max: 10
-  visible_duration: 5
+  res_scale_min: 0.1
+  res_scale_max: 2
+  visible_duration: 7
 --- !u!23 &1165972236
 MeshRenderer:
   m_ObjectHideFlags: 0

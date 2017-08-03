@@ -37,8 +37,6 @@ public class TargetPopupManager : MonoBehaviour {
     // rotation set rand (enum on 90s?) 
     // var
 
-
-
     // visible props
     public float visible_duration;
     private double time;

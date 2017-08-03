@@ -13,7 +13,9 @@ public class FlickManager : MonoBehaviour {
     public float horizontalScale; 
     public int forwardConstant; // constant because
 
-    public float minSwipeLength = 200f;
+    public float thrustMax; 
+
+    public int minSwipeLength = 200;
 
     Vector2 firstPressPos;
     Vector2 secondPressPos;
@@ -21,7 +23,6 @@ public class FlickManager : MonoBehaviour {
     Vector2 mousePosition; 
     List<Vector2> points = new List<Vector2>();
     Vector3 thrust; 
-
 
     bool shouldAppend; 
 
@@ -64,7 +65,7 @@ public class FlickManager : MonoBehaviour {
                 float z_amt = 0;
 
                 rb.AddForceAtPosition(new Vector3(0, 100, 0), new Vector3(0.2f, 0.2f, 0.2f));
-                print("this.tag is: " + this.tag);
+                //print("this.tag is: " + this.tag);
 
                 // after calculating thrust 
                 points.Clear();
@@ -121,6 +122,12 @@ public class FlickManager : MonoBehaviour {
         }                
 
         thrustVector = new Vector3(comp_horizontal, comp_vert, comp_forward);
+
+        if(thrustVector.y > thrustMax)
+        {
+            thrustVector.y = 1000;
+        }
+
         print("Thurst vector: " + thrustVector); 
 
         return thrustVector;

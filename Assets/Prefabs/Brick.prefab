@@ -164,4 +164,5 @@ MonoBehaviour:
   thrustScaleForward: 3
   horizontalScale: 2
   forwardConstant: 400
+  thrustMax: 1000
   minSwipeLength: 200
