@@ -31,15 +31,17 @@ public class DetectInTarget : MonoBehaviour {
 
             print("this ob name: " + this.name);
             // destroy the current brick
-            Destroy(this.gameObject); 
+            //Destroy(this.gameObject); 
 
             ref_platform = GameObject.FindWithTag("platform");
             ref_platform.GetComponent<BrickExistenceManager>().score += score_increment;
 
+            Destroy(this.gameObject); 
+
             //print("score is: " + ref_platform.GetComponent<BrickExistenceManager>().score); 
 
             // add to score 
-            
+
         }        
     }     
 }
