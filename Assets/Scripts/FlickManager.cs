@@ -27,11 +27,13 @@ public class FlickManager : MonoBehaviour {
     List<Vector2> points = new List<Vector2>();
     Vector3 thrust; 
 
-    bool shouldAppend; 
+    bool shouldAppend;
+    bool canFlick; 
 
     // Use this for initialization
     void Start () {        
         shouldAppend = false;
+        canFlick = true; 
 	}
 
     // Update is called once per frame            
@@ -42,33 +44,40 @@ public class FlickManager : MonoBehaviour {
             print("pressed y");
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            // start input            
-            shouldAppend = true;
-        }
+        
+       if (Input.GetMouseButtonDown(0))
+       {
+           // start input            
+           shouldAppend = true;
+       }
+       
+       if (Input.GetMouseButtonUp(0))
+       {
+           // stop getting input
+           shouldAppend = false;
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            // stop getting input
-            shouldAppend = false;
-
-            // calculate thrust  
-            if (points.Count > 0)
-            {
-                // calculate thrust
-                thrust = calculateFlickThrust();
-
-                // apply thrust 
-                rb.AddForce(thrust);
-
-                // apply rotation                 
-                rb.AddForceAtPosition(new Vector3(0, x_rotation, 0), new Vector3(0.2f, 0.2f, 0.2f)); // make the force position publically settable also                                 
-
-                // after calculating thrust 
-                points.Clear();
-            }
-        }
+            Destroy(this.GetComponent<ObjectForward>());
+            
+           // calculate thrust  
+           if (points.Count > 0)
+           {
+               // calculate thrust
+               thrust = calculateFlickThrust();
+       
+               // apply thrust 
+               rb.AddForce(thrust);
+       
+               // apply rotation                 
+               rb.AddForceAtPosition(new Vector3(0, x_rotation, 0), new Vector3(0.2f, 0.2f, 0.2f)); // make the force position publically settable also                                 
+       
+               // after calculating thrust 
+               points.Clear();
+           }
+            
+            // remove the flicker, prevent reflick
+            Destroy(this.GetComponent<FlickManager>());
+       }
+          
     }
 
     private void FixedUpdate()

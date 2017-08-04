@@ -33,7 +33,7 @@ public class BrickExistenceManager : MonoBehaviour {
         platformCurrentPosition = new Vector3(platform.transform.position.x, platform.transform.position.y,
             platform.transform.position.z);
 
-        activeBricks.Add((GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
+        activeBricks.Add((GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 3.0f, 0),
                     transform.rotation));
 
         //shouldTracktime = false;

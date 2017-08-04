@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95065448516672460}
   - component: {fileID: 64406428258973010}
   - component: {fileID: 54611612177365782}
+  - component: {fileID: 65917844833043688}
   m_Layer: 0
   m_Name: SizeableRing
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1273045671270954}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 15.288534, y: -0.3416934, z: -5.163273}
+  m_LocalPosition: {x: -12.73, y: 5.17, z: -4.98}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,10 +95,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!64 &64406428258973010
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -108,10 +109,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_InflateMesh: 1
   m_SkinWidth: 0.1
   m_Mesh: {fileID: 4300000, guid: 4ca9bda768f5449468bb16b65c328dc3, type: 3}
+--- !u!65 &65917844833043688
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1273045671270954}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2035891, y: 1.3457434, z: 0.088444844}
+  m_Center: {x: -0.02024641, y: 0.011734105, z: -0.20577772}
 --- !u!95 &95065448516672460
 Animator:
   serializedVersion: 3
