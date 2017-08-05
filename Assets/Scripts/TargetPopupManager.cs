@@ -59,7 +59,7 @@ public class TargetPopupManager : MonoBehaviour {
 	void Update () {
         // move the ring at same (will be less) rate as platform
         //targ_ring.transform.Translate(Vector3.forward * target_forward_speed * Time.deltaTime, Space.World);
-        targ_ring.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -2));
+        
 
         if(Input.GetKeyDown(KeyCode.P))
         {
@@ -75,7 +75,9 @@ public class TargetPopupManager : MonoBehaviour {
 
         //if()
 
-        if(Math.Round(time, 0) >= visible_duration)
+        targ_ring.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -0.5f));
+
+        if (Math.Round(time, 0) >= visible_duration)
         {
             // destroy existing 
             Destroy(targ_ring);

@@ -241,11 +241,11 @@ MonoBehaviour:
   xrange_min: -5
   xrange_max: 5
   yrange_min: 5
-  yrange_max: 20
+  yrange_max: 15
   zrange_min: 20
   zrange_max: 60
-  res_scale_min: 2
-  res_scale_max: 5
+  res_scale_min: 3
+  res_scale_max: 9
   visible_duration: 5
 --- !u!23 &1165972236
 MeshRenderer:
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d29d176f5bd324492903a8b9c28128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 10
+  speedMultiplier: 5
 --- !u!114 &1165972241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d29d176f5bd324492903a8b9c28128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 10
+  speedMultiplier: 5
 --- !u!1 &1845386009
 GameObject:
   m_ObjectHideFlags: 0

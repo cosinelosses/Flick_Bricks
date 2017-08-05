@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114580550898663522}
   - component: {fileID: 114783244827726792}
   - component: {fileID: 64381339858731446}
+  - component: {fileID: 114221642558077232}
   m_Layer: 0
   m_Name: Brick
   m_TagString: Brick
@@ -111,8 +112,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
+  m_Convex: 1
+  m_InflateMesh: 1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &65046985790237672
@@ -138,7 +139,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d29d176f5bd324492903a8b9c28128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 10
+  speedMultiplier: 5
+--- !u!114 &114221642558077232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408593478458184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ca65efef1210145b217b876f563a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114580550898663522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,8 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 54781817209398810}
-  thrustScaleVertical: 0
-  thrustScaleForward: 0
+  thrustScaleVertical: 7
+  thrustScaleForward: 3
   horizontalScale: 2
   forwardConstant: 600
   thrustMax: 1000
