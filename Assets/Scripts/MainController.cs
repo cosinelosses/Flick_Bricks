@@ -68,7 +68,7 @@ public class MainController : MonoBehaviour {
             Platform.transform.position.z);
 
         // spawn a brick
-        //spawnBrick(); 
+        spawnBrick(); 
 
         // enable brick flick
         can_flick = true; 
@@ -134,7 +134,7 @@ public class MainController : MonoBehaviour {
     private void spawnBrick()
     {
         // set brick spawn position (can resuse after start) 
-        brick_spawn_position = new Vector3(PlatformPosition.x, PlatformPosition.y + 3.0f, PlatformPosition.z);
+        brick_spawn_position = new Vector3(PlatformPosition.x, PlatformPosition.y + 2.5f, PlatformPosition.z);
 
         // firt brick spawn
         bricks.Add(Instantiate(brick_prefab, brick_spawn_position, Quaternion.identity));
