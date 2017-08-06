@@ -28,6 +28,7 @@ public class TargetPopupManager : MonoBehaviour {
     public int zrange_min;
     public int zrange_max;
 
+    // range for scaling the size of rings 
     public float res_scale_min;
     public float res_scale_max; 
 
@@ -74,8 +75,10 @@ public class TargetPopupManager : MonoBehaviour {
         time += Time.deltaTime;
 
         //if()
-
-        targ_ring.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -0.5f));
+        if(targ_ring != null)
+        {
+            targ_ring.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -0.5f));
+        }
 
         if (Math.Round(time, 0) >= visible_duration)
         {
@@ -95,7 +98,6 @@ public class TargetPopupManager : MonoBehaviour {
             targ_ring.transform.localScale = new Vector3(res_scale_value, res_scale_value, res_scale_value);
 
             // print("current res_scale_value is: " + res_scale_value); 
-
             time = 0; 
         }        
     }   

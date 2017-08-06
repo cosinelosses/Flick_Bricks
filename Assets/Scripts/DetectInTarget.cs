@@ -5,9 +5,7 @@ using UnityEngine;
 public class DetectInTarget : MonoBehaviour {
 
     // use the platform to reference its script
-    private GameObject ref_platform;
-
-    private Time time_since_launch; 
+    private GameObject ref_platform;    
 
     private int score_increment; 
 
@@ -21,15 +19,16 @@ public class DetectInTarget : MonoBehaviour {
 		
 	}    
 
+    
     // sends trigger events 
     public void OnTriggerEnter(Collider col)
     {       
         // successfully through the ring 
-        if(col.tag == "target_box")
+        if(col.tag == "Brick")
         {            
-            print("That's in! Destroying the brick");
+            print("That's in! Destroying the ring");
 
-            print("this ob name: " + this.name);
+            //print("this ob name: " + this.name);
             // destroy the current brick
             //Destroy(this.gameObject); 
 
@@ -43,5 +42,5 @@ public class DetectInTarget : MonoBehaviour {
             // add to score 
 
         }        
-    }     
+    }    
 }

@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class ObjectForward : MonoBehaviour {
 
-    // speed const
-    public float speedMultiplier; 
-
-    /* blah */ 
+    public float ForwardForce; 
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +13,11 @@ public class ObjectForward : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        this.transform.Translate(Vector3.forward * speedMultiplier * Time.deltaTime, Space.World); 
+		
 	}
+
+    private void FixedUpdate()
+    {
+        GetComponent<Rigidbody>().AddForce(new Vector3(ForwardForce, 0, 0));
+    }
 }

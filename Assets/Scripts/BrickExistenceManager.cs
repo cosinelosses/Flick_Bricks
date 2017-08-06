@@ -40,8 +40,7 @@ public class BrickExistenceManager : MonoBehaviour {
        // time_since_launch = 0; 
 
         Debug.Log(activeBricks); 
-    
-        
+            
         // spawn the first brick at start 
         /*currentBrick = (GameObject)Instantiate(prefabBrick, platformCurrentPosition + new Vector3(0, 2.0f, 0),
                     transform.rotation);*/
@@ -142,7 +141,7 @@ public class BrickExistenceManager : MonoBehaviour {
             activeBricks.Add(bricks[i]); 
         }
         
-        print("there are " + activeBricks.Count + " active now.");        
+        // print("there are " + activeBricks.Count + " active now.");        
     }
 
     private GameObject[] sortGameObjectArray(GameObject[] gameObjects)

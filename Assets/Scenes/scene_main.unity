@@ -212,9 +212,8 @@ GameObject:
   - component: {fileID: 1165972238}
   - component: {fileID: 1165972237}
   - component: {fileID: 1165972236}
-  - component: {fileID: 1165972240}
-  - component: {fileID: 1165972241}
   - component: {fileID: 1165972235}
+  - component: {fileID: 1165972240}
   m_Layer: 0
   m_Name: Platform
   m_TagString: platform
@@ -230,23 +229,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1165972234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7237ce41e703dca43ac56111161e4869, type: 3}
+  m_Script: {fileID: 11500000, guid: 9479ee49238ab20498d33fff31da74cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target_prefab: {fileID: 1273045671270954, guid: 6f82445e502edcf458ae29a1188373fc,
+  Platform: {fileID: 1165972234}
+  PlatformPosition: {x: 0, y: 0, z: 0}
+  ForwardForce: 300
+  brick_prefab: {fileID: 1408593478458184, guid: 99e86cb591695ec408485522d77e46cf,
     type: 2}
-  ref_platform: {fileID: 1165972234}
-  platform_position: {x: 0, y: 0, z: 0}
-  target_forward_speed: 3
-  xrange_min: -5
-  xrange_max: 5
-  yrange_min: 5
-  yrange_max: 15
-  zrange_min: 20
-  zrange_max: 60
-  res_scale_min: 3
-  res_scale_max: 9
-  visible_duration: 5
+  ring_prefab: {fileID: 0}
+  Xrange: 5
+  Yrange: 3
+  Zrange: 4
+  FlickInterval: 0.5
 --- !u!23 &1165972236
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -305,41 +300,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1165972234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.2, z: -0.13}
-  m_LocalScale: {x: 4, y: 4.221095, z: 3.224825}
+  m_LocalPosition: {x: 0, y: -1.2, z: 0}
+  m_LocalScale: {x: 1.5478555, y: 5.3342853, z: 1.5471619}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1165972240
-MonoBehaviour:
+--- !u!54 &1165972240
+Rigidbody:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1165972234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d29d176f5bd324492903a8b9c28128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiplier: 5
---- !u!114 &1165972241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1165972234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54302390378cb564b9a00a8e8a064ae0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  cutoffLevel: -1
-  prefabBrick: {fileID: 1408593478458184, guid: 99e86cb591695ec408485522d77e46cf,
-    type: 2}
-  platform: {fileID: 1165972234}
-  brickTag: Brick
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1686721046
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +333,6 @@ GameObject:
   - component: {fileID: 1686721049}
   - component: {fileID: 1686721048}
   - component: {fileID: 1686721047}
-  - component: {fileID: 1686721052}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -423,25 +403,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1686721046}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.757, z: -3.68}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -4.8, y: 3.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1686721052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1686721046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d29d176f5bd324492903a8b9c28128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiplier: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1845386009
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,139 +3,81 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlickManager : MonoBehaviour {
-    
+public class FlickManager : MonoBehaviour
+{
+    // rb to flick
     public Rigidbody rb;
 
     // multipliers for thurst calculation 
-    public float thrustScaleVertical;
-    public float thrustScaleForward;
-    public float horizontalScale; 
-    public int forwardConstant; // constant because
+    public float thrustScaleVertical = 3;
+    public float thrustScaleForward = 4;
+    public float horizontalScale = 2;
+    public int forwardConstant = 300; 
 
     // limits 
-    public float thrustMax; 
+    public float thrustMax = 1000;
     public int minSwipeLength = 200;
 
     // rotational forces (can add other axes later) 
-    public float x_rotation; 
+    public float x_rotation = 30;
 
     Vector2 firstPressPos;
     Vector2 secondPressPos;
 
-    Vector2 mousePosition; 
+    Vector2 mousePosition;
     List<Vector2> points = new List<Vector2>();
-    Vector3 thrust; 
+    Vector3 thrust;
 
-    bool shouldAppend;
-    bool canFlick; 
+    //bool shouldTrack; // will be tracking the entire time the Flick Manager component is attached 
+    bool canFlick;
 
     // Use this for initialization
-    void Start () {        
-        shouldAppend = false;
-        canFlick = true; 
-	}
+    void Start()
+    {        
+        rb = this.GetComponent<Rigidbody>(); 
+    }
 
     // Update is called once per frame            
-	void Update () {
-
-        if (Input.GetKeyDown(KeyCode.Y))
+    void Update()
+    {
+        // while mouse is down, track movement
+        while (Input.GetMouseButtonDown(0))
         {
-            print("pressed y");
+            mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            points.Add(mousePosition);
         }
 
-        
-       if (Input.GetMouseButtonDown(0))
-       {
-           // start input            
-           shouldAppend = true;
-       }
-       
-       if (Input.GetMouseButtonUp(0))
-       {
-           // stop getting input
-           shouldAppend = false;
+        if (Input.GetMouseButtonUp(0))
+        {
+            //calculateFlickThrust();
 
-            Destroy(this.GetComponent<ObjectForward>());
-            
-           // calculate thrust  
-           if (points.Count > 0)
-           {
-               // calculate thrust
-               thrust = calculateFlickThrust();
-       
-               // apply thrust 
-               rb.AddForce(thrust);
-       
-               // apply rotation                 
-               rb.AddForceAtPosition(new Vector3(0, x_rotation, 0), new Vector3(0.2f, 0.2f, 0.2f)); // make the force position publically settable also                                 
-       
-               // after calculating thrust 
-               points.Clear();
-           }
-            
-            // remove the flicker, prevent reflick
+            // reset tracker 
+            points.Clear();
+
+            // apply the flick
+
+            // remove flick manger from this brick 
             Destroy(this.GetComponent<FlickManager>());
-       }
-          
+        }
+
     }
 
     private void FixedUpdate()
-    {       
-        if (shouldAppend)
-        {
-            // get current mouse position each fixed update
-            mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);                        
-
-            // add current mouse position to points list
-            points.Add(mousePosition);
-        }
+    {
+        
     }
 
     void ApplyForce(Rigidbody body)
     {
         Vector3 direction = body.transform.position - transform.position;
-        body.AddForceAtPosition(direction.normalized, transform.position);               
+        body.AddForceAtPosition(direction.normalized, transform.position);
     }
 
-    private Vector3 calculateFlickThrust()
+    private Vector3 calculateFlickThrust(float scale_forward, float scale_vertial, float scale_horizontal, int forward_constant, float thrust_max)
     {
         Vector3 thrustVector = new Vector3();
-
-        float comp_forward; 
-        float comp_vert;
-        float comp_horizontal;
-
-        for (int i = 0; i < points.Count; i++)
-        {
-            print("Point in list: " + points[i].x + " " + points[i].y); 
-        }
-
-        // vertical component
-        comp_vert = points[points.Count - 1].y - points[0].y;
-            comp_vert *= thrustScaleVertical;
-
-        // horizontal component
-        comp_horizontal = points[points.Count - 1].x - points[0].x; // z is horizonatal component relative to the world, x is horizontal relative to the screen (for mouse input)         
-            comp_horizontal *= horizontalScale; 
-
-        // forward component
-        comp_forward = forwardConstant * thrustScaleForward;
-
-        if (comp_forward < 0)
-        {
-            // make positive only
-            comp_forward *= -1.0f; 
-        }                
-
-        thrustVector = new Vector3(comp_horizontal, comp_vert, comp_forward);
-
-        if(thrustVector.y > thrustMax)
-        {
-            thrustVector.y = 1000;
-        }
-
-        print("Thurst vector: " + thrustVector); 
+        
 
         return thrustVector;
     }
@@ -144,6 +86,6 @@ public class FlickManager : MonoBehaviour {
     {
         Vector3 rotation = new Vector3();
 
-        return rotation; 
+        return rotation;
     }
 }
