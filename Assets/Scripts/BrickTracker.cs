@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickBehavior : MonoBehaviour {
+public class BrickTracker : MonoBehaviour {
 
     public float TimeSinceFlicked; 
 

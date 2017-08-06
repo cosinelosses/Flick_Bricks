@@ -34,7 +34,12 @@ public class FlickManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {        
-        rb = this.GetComponent<Rigidbody>(); 
+        
+    }
+
+    private void Awake()
+    {
+        rb = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame            

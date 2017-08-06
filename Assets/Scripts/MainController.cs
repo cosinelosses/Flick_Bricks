@@ -83,25 +83,31 @@ public class MainController : MonoBehaviour {
 
         // set camera position
         // Quaternion.Euler(0, 90, 0)
-        camera.transform.position = new Vector3(PlatformPosition.x - 5, PlatformPosition.y + 4, PlatformPosition.z);
+        camera.transform.position = new Vector3(PlatformPosition.x - 5, PlatformPosition.y + 4.4f, PlatformPosition.z);
 
+        // sorts bricks by time 
 
         if (can_flick)
         {
-            if(Input.GetMouseButtonDown(0))
+
+            
+            if (Input.GetMouseButtonDown(0))
             {
                 // start recording flick up
+
             }
             // flick 
             // record when brick was flicked 
 
-            time_flicked = time;
-        }
+            if (Input.GetMouseButtonUp(0))
+            {
+                time_flicked = time;
 
-        if(Input.GetKeyDown(KeyCode.Y))
-        {        
-            bricks[0].AddComponent<FlickManager>();
+            }
+
+            
         }
+        
 	}
 
     private void FixedUpdate()
@@ -112,9 +118,7 @@ public class MainController : MonoBehaviour {
         // update platform postion
         PlatformPosition = new Vector3(Platform.transform.position.x, Platform.transform.position.y,
             Platform.transform.position.z);
-
         
-
         // update last brick time
 
         // check if time > flick interval to enable the flickage
@@ -134,10 +138,13 @@ public class MainController : MonoBehaviour {
     private void spawnBrick()
     {
         // set brick spawn position (can resuse after start) 
-        brick_spawn_position = new Vector3(PlatformPosition.x, PlatformPosition.y + 2.5f, PlatformPosition.z);
+        brick_spawn_position = new Vector3(PlatformPosition.x, PlatformPosition.y + 3, PlatformPosition.z);
 
-        // firt brick spawn
-        bricks.Add(Instantiate(brick_prefab, brick_spawn_position, Quaternion.identity));
+        // brick spawn
+        GameObject new_brick = Instantiate(brick_prefab, brick_spawn_position, Quaternion.identity);
+        new_brick.AddComponent<BrickTracker>();
+        new_brick.GetComponent<BrickTracker>().TimeSinceFlicked = 0; 
+        bricks.Add(new_brick);
     }
 
     // **HALFWAY UNCOUPLED** (make return) 
@@ -151,5 +158,11 @@ public class MainController : MonoBehaviour {
         Zvalue = Random.Range(z_range * -1, z_range);
         Random.InitState(System.DateTime.Now.Millisecond);
     }
+
+    /*
+    private float getRandoms(float x_range, float y_range, float z_range)
+    {
+
+    } */
         
 }

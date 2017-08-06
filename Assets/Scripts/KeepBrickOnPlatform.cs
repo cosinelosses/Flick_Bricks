@@ -26,14 +26,14 @@ public class KeepBrickOnPlatform : MonoBehaviour {
 
     // Physics 
     private void FixedUpdate()
-    {
-        // lock sideways motion and rotation (unset these on flick) 
-        rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
-
+    {        
         // keep on platform if on platform
         if (on_platform)
         {
-            this.transform.position = new Vector3(platform.transform.position.x, 0, 0);  ; 
+            // lock sideways motion and rotation (unset these on flick) 
+            rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
+
+            //this.transform.position = new Vector3(platform.transform.position.x, platform.transform.position.y + 2.0f, 0);  // this line breaks it 
         }
 
 
